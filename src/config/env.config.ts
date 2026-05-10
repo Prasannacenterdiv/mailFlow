@@ -7,6 +7,6 @@ export const ENV={
     REDIS_HOST:process.env.REDIS_HOST || "127.0.0.1",   
     REDIS_PORT:process.env.REDIS_PORT || 6379,
     RESEND_API_KEY:process.env.RESEND_API_KEY!,
-    MAIN_FROM:process.env.MAIN_FROM_EMAIL!,
+    MAIL_FROM:process.env.MAIL_FROM!,
 }
 
