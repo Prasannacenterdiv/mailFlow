@@ -1,20 +1,8 @@
-export type mailType = 'welcome' | 'otp';
+import { z } from "zod";
+import { mailSchema, otpSchema, welcomeSchema } from "../validations/mail.validation.js"
 
-export interface BaseMailPayload {
-    to: string,
-    type: mailType
-}
 
-export interface WelcomeMailPayload extends BaseMailPayload {
-    type: 'welcome',
-    name: string
-}
 
-export interface OtpMailPyaload extends BaseMailPayload {
-    type: 'otp',
-    otp: string,
-    expiresIn: string
-}
-
-export type MailPayload = WelcomeMailPayload | OtpMailPyaload;
-
+export type WelcomeMailPayload = z.infer<typeof welcomeSchema>;
+export type OTPMailPayload = z.infer<typeof otpSchema>;
+export type MailPayload = z.infer<typeof mailSchema>;

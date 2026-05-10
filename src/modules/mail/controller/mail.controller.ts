@@ -14,4 +14,4 @@ export const sendMailController = asyncHandler(async (req: Request, res: Respons
 
     await queueMail(parsed.data);
     return sendSuccess(res, { message: "Mail queued successfully" }, 202);
-}
+})
