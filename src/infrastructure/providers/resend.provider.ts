@@ -25,6 +25,11 @@ export const sendMail = async (payload: MailPayload) => {
         subject: MAIL_SUBJECTS[payload.type] ?? "No Subject",
         html,
     });
+
+    if (result.error) {
+        throw new Error(`Resend error: ${result.error.message}`);
+    }
+    
     logger.info(`Email sent to ${payload.to} [${payload.type}] → ID: ${result.data?.id}`);
     return result;
 };
